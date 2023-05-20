@@ -13,6 +13,11 @@ export class AuthorizationService {
   url: string = "http://localhost:3000";
   token: string | null = localStorage.getItem("token");
 
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) {}
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
@@ -33,7 +38,7 @@ export class AuthorizationService {
         return EMPTY;
       }),
       map(data => {
-        this.router.navigate(["/"]);
+        this.router.navigate(["/main"]);
 
         this.token = data.name
 
@@ -54,7 +59,7 @@ export class AuthorizationService {
         return EMPTY;
       }),
       map(data => {
-        this.router.navigate(["/"]);
+        this.router.navigate(["/main"]);
 
         this.token = data.name;
 
@@ -63,8 +68,26 @@ export class AuthorizationService {
     );
   }
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-  ) {}
+  checkToken(): Observable<User | HttpErrorResponse | Error> {
+    if(this.token) {
+      return this.http.get<User>(this.url + "/users/token", {
+        headers: {"token": this.token},
+        responseType: "json",
+      }).pipe(
+        catchError(err => {
+          this.router.navigate(["/user/login"], {
+            queryParams: {error: "Авторизационный токен просрочен"}
+          });
+
+          return EMPTY;
+        })
+      );
+    }
+
+    this.router.navigate(["/main"], {
+      queryParams: {error: "Необходима авторизация"}
+    });
+
+    return new Observable();
+  }
 }
