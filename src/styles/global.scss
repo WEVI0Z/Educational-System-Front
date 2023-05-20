@@ -74,4 +74,18 @@ ul {
         box-shadow: none;
         transform: translateY(3px);
     }
+
+    &:disabled {
+        background-color: gray;
+
+        &:hover, &:focus {
+            color: whitesmoke;
+            cursor: default;
+        }
+
+        &:active {
+            box-shadow: 0 4px 0 0px lightgrey;
+            transform: translateY(0px);
+        }
+    }
 }
