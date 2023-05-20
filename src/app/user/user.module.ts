@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterModule } from "./register/register.module";
 import { LoginModule } from "./login/login.module";
 import { UserRoutingModule } from "./user-routing.module";
+import { AuthorizationModule } from "../authorization/authorization.module";
 
 @NgModule({
   declarations: [],
@@ -10,7 +11,8 @@ import { UserRoutingModule } from "./user-routing.module";
     CommonModule,
     RegisterModule,
     LoginModule,
-    UserRoutingModule
+    UserRoutingModule,
+    AuthorizationModule
   ]
 })
 export class UserModule { }
