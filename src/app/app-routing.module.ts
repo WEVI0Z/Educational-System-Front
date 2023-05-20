@@ -6,6 +6,11 @@ const routes: Routes = [
     path: "user",
     loadChildren: () =>  import("./user/user.module").then(m => m.UserModule),
   },
+  {
+    path: "main",
+    pathMatch: "full",
+    loadChildren: () =>  import("./main/main.module").then(m => m.MainModule),
+  },
 ];
 
 @NgModule({
