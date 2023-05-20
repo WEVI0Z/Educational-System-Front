@@ -1,0 +1,68 @@
+@import "../variables.scss";
+@import "../typography.scss";
+
+.form {
+    max-width: $block-width;
+    min-width: $element-width;
+    margin: 50px auto;
+    padding: $container-padding;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 1px 5px 1px lightgray;
+
+    &__fieldset {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        border: none;
+    }
+
+    &__legend {
+        padding-left: 20px;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    &__label {
+        display: block;
+        margin: 5px;
+    }
+
+    &__input {
+        width: 270px;
+        padding: 10px 5px;
+
+        color: $active-text-color;
+
+        border-radius: 20px;
+        font-family: $font-family;
+        font-size: 18px;
+        border: 2px solid $active-text-color;
+        transition: all 0.2s ease-out;
+
+        &::placeholder {
+            color: $active-text-color;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1px 2px 1px lightgray;
+        }
+    }
+
+    &__title {
+        margin: 5px;
+        font-weight: 900;
+    }
+
+    &__submit {
+        margin-top: 20px;
+    }
+}

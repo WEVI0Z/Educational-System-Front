@@ -49,18 +49,24 @@ ul {
 }
 
 .button {
-    background-color: $active-text-color;
-    color: whitesmoke;
     padding: 10px 20px;
+
+    font-family: $font-family;
+    color: whitesmoke;
+    font-size: 16px;
+    font-weight: 700;
+
     border-radius: 20px;
+    background-color: $active-text-color;
     transition: all 0.2s ease-out;
     box-shadow: 0 4px 0 0px lightgrey;
+    border: none;
 
     &:hover, &:focus {
         color: $active-text-color;
         background-color: whitesmoke;
         text-decoration: none;
-
+        cursor: pointer;
         transform: translateY(0px);
     }
 

@@ -1,1 +1,34 @@
-<p>register works!</p>
+<form action="" method="post" class="form form--registration">
+    <h2 class="form__title">Регистрация</h2>
+
+    <fieldset class="form__fieldset">
+        <legend class="form__legend">Аутентификационные данные:</legend>
+        <label for="login" class="form__label">
+            <input type="text" name="login" id="login" class="form__input" placeholder="Логин...">
+        </label>
+        <label for="email" class="form__label">
+            <input type="email" name="email" id="email" class="form__input" placeholder="Почта...">
+        </label>
+        <label for="password" class="form__label">
+            <input type="password" name="password" id="password" class="form__input" placeholder="Пароль...">
+        </label>
+        <label for="password_confirmation" class="form__label">
+            <input type="password" name="password_confirmation" id="password_confirmation" class="form__input" placeholder="Повторите пароль...">
+        </label>
+    </fieldset>
+
+    <fieldset class="form__fieldset">
+        <legend class="form__legend">Персональные данные:</legend>
+        <label for="last_name" class="form__label">
+            <input type="text" name="last_name" id="last_name" class="form__input" placeholder="Фамилия...">
+        </label>
+        <label for="first_name" class="form__label">
+            <input type="text" name="first_name" id="first_name" class="form__input" placeholder="Имя...">
+        </label>
+        <label for="middle_name" class="form__label">
+            <input type="text" name="middle_name" id="middle_name" class="form__input" placeholder="Отчество...">
+        </label>
+    </fieldset>
+
+    <button type="submit" class="form__submit button">Создать аккаунт</button>
+</form>
