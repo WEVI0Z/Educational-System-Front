@@ -1,0 +1,58 @@
+@import "./variables.scss";
+@import "./typography.scss";
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: $background-color;
+    font-family: $font-family;
+}
+
+a {
+    display: block;
+
+    text-decoration: none;
+    color: black;
+    
+    transition: transform 0.2s ease-out;
+
+    &:hover, &:focus {
+        color: $active-text-color;
+        text-decoration: underline;
+        cursor: pointer;
+
+        transform: translateY(-3px);
+    }
+
+    &:active {
+        color: $background-color;
+        transform: translateY(0px);
+    }
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.button {
+    background-color: $active-text-color;
+    color: whitesmoke;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all 0.2s ease-out;
+    box-shadow: 0 4px 0 0px lightgrey;
+
+    &:hover, &:focus {
+        color: $active-text-color;
+        background-color: whitesmoke;
+        text-decoration: none;
+
+        transform: translateY(0px);
+    }
+
+    &:active {
+        box-shadow: none;
+        transform: translateY(3px);
+    }
+}
