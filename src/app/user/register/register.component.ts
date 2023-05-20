@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { EMPTY, catchError } from "rxjs";
 import { AuthorizationService } from "src/app/authorization/services/authorization.service";
 import { User } from "src/app/shared/interfaces/user.interface";
 

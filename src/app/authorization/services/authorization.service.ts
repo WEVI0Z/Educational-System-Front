@@ -25,7 +25,9 @@ export class AuthorizationService {
     return this.http.post<Token>(this.url + "/users", user, {...this.httpOptions, responseType: "json"}).pipe(
       catchError((err: HttpErrorResponse) => {
         if(err.status === 400 || err.status === 422) {
-          this.router.navigate(["/user/register"]);
+          this.router.navigate(["/user/register"], {
+            queryParams: {error: err.statusText}
+          });
         }
         
         return EMPTY;
@@ -41,10 +43,12 @@ export class AuthorizationService {
   }
 
   login(login: string, password: string): Observable<Token | HttpErrorResponse> {
-    return this.http.post<Token>(this.url + "/login", {login, password}, {...this.httpOptions, responseType: "json"}).pipe(
+    return this.http.post<Token>(this.url + "/users/login", {login, password}, {...this.httpOptions, responseType: "json"}).pipe(
       catchError((err: HttpErrorResponse) => {
         if(err.status === 404) {
-          this.router.navigate(["/user/register"]);
+          this.router.navigate(["/user/login"], {
+            queryParams: {error: "Неправильный логин или пароль"}
+          });
         }
 
         return EMPTY;
