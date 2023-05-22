@@ -11,9 +11,9 @@
         </ul>
 
         <ul class="footer__buttons">
-            <li class="footer__button"><a class="button" href="#">Регистрация</a></li>
-            <li class="footer__button"><a class="button" href="#">Вход</a></li>
-            <li class="footer__button"><a class="button" href="#">Выйти</a></li>
+            <li *ngIf="!(authorized | async)" class="footer__button"><a class="button" routerLink="/user/register">Регистрация</a></li>
+            <li *ngIf="!(authorized | async)" class="footer__button"><a class="button" routerLink="/user/login">Вход</a></li>
+            <li *ngIf="authorized | async" class="footer__button"><a class="button" (click)="logout(router)">Выйти</a></li>
         </ul>
     </nav>
 </footer>

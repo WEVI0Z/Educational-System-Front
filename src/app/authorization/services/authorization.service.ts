@@ -41,6 +41,8 @@ export class AuthorizationService {
 
         this.token = data.name
 
+        localStorage.setItem("token", data.name);
+
         return data;
       })
     );
@@ -61,6 +63,8 @@ export class AuthorizationService {
         this.router.navigate(["/main"]);
 
         this.token = data.name;
+
+        localStorage.setItem("token", data.name);
 
         return data;
       })
@@ -83,12 +87,24 @@ export class AuthorizationService {
       );
     }
 
-    this.router.navigate(["/main"], {
+    this.router.navigate(["/user/login"], {
       queryParams: {error: "Необходима авторизация"}
     });
 
     this.token = null
 
+    localStorage.removeItem("token");
+
     return new Observable();
+  }
+
+  logout(router: Router) {
+    this.router.navigate(["/user/login"], {
+      queryParams: {error: "Необходима авторизация"}
+    });
+
+    this.token = null;
+
+    localStorage.removeItem("token");
   }
 }

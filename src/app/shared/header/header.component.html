@@ -11,9 +11,9 @@
         </ul>
 
         <ul class="header__buttons">
-            <li class="header__button"><a class="button" routerLink="/user/register">Регистрация</a></li>
-            <li class="header__button"><a class="button" routerLink="/user/login">Вход</a></li>
-            <li class="header__button"><a class="button" routerLink="/user/logout">Выйти</a></li>
+            <li *ngIf="!(authorized | async)" class="header__button"><a class="button" routerLink="/user/register">Регистрация</a></li>
+            <li *ngIf="!(authorized | async)" class="header__button"><a class="button" routerLink="/user/login">Вход</a></li>
+            <li *ngIf="authorized | async" class="header__button"><a class="button" (click)="logout(router)">Выйти</a></li>
         </ul>
     </nav>
 </header>
