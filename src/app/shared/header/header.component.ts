@@ -14,10 +14,9 @@ export class HeaderComponent {
     protected router: Router,
   ) {}
 
-  protected authorized: Observable<boolean> = this.authService.checkToken().pipe(
-    catchError(() => EMPTY),
-    map(() => true)
-  )
+  protected authorized: Observable<boolean> = this.authService.isAuthorized();
+
+  protected admin: Observable<boolean> = this.authService.isAdmin();
 
   protected logout = this.authService.logout;
 }

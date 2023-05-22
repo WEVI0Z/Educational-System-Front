@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 import { Observable, catchError, EMPTY, map } from "rxjs";
 import { AuthorizationService } from "src/app/authorization/services/authorization.service";
+import { User } from "../interfaces/user.interface";
 
 @Component({
   selector: 'footer-component',
@@ -14,10 +15,9 @@ export class FooterComponent {
     protected router: Router,
   ) {}
 
-  protected authorized: Observable<boolean> = this.authService.checkToken().pipe(
-    catchError(() => EMPTY),
-    map(() => true)
-  )
+  protected authorized: Observable<boolean> = this.authService.isAuthorized();
+
+  protected admin: Observable<boolean> = this.authService.isAdmin();
 
   protected logout = this.authService.logout
 }

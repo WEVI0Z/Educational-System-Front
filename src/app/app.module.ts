@@ -6,12 +6,14 @@ import { UserModule } from "./user/user.module";
 import { AuthorizationModule } from "./authorization/authorization.module";
 import { SharedModule } from "./shared/shared.module";
 import { HttpClientModule } from "@angular/common/http"
+import { AdminModule } from "./admin/admin.module";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    AdminModule,
     SharedModule,
     BrowserModule,
     AppRoutingModule,
