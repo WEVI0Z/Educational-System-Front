@@ -20,20 +20,21 @@
             <app-document></app-document>
         </li>
     </ul>
-    <form class="form" action="" method="post" enctype="multipart/form-data">
+    <form class="form" action="" method="post" enctype="multipart/form-data" [formGroup]="form" (ngSubmit)="submit()">
         <h3 class="form__title">Создать новый документ</h3>
         <label for="title" class="form__label">
-            <input type="text" name="title" id="title" class="form__input" placeholder="Название документа...">
+            <input formControlName="title" type="text" name="title" id="title" class="form__input" placeholder="Название документа...">
         </label>
         <label for="category" class="form__label">
-            <select class="form__select" name="category" id="category">
+            Категория:
+            <select formControlName="category" class="form__select" name="category" id="category">
                 <option value="practise">Практика</option>
-                <option value="practise">Теория</option>
+                <option value="theory">Теория</option>
             </select>
         </label>
-        <label for="" class="form__label">
-            <input type="file" name="" id="" class="form__input">
+        <label for="file" class="form__label">
+            <input formControlName="file" type="file" name="file" id="file" class="form__input">
         </label>
-        <button type="submit" class="form__submit button">Создать</button>
+        <button type="submit" class="form__submit button" [disabled]="form.invalid">Создать</button>
     </form>
 </div>
