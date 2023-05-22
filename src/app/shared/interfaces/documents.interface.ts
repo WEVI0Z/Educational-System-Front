@@ -1,7 +1,7 @@
 export interface Document {
     title: string,
 
-    file: File,
+    file: File | string,
 
     category: string,
 

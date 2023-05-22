@@ -4,6 +4,7 @@ import { Document } from "src/app/shared/interfaces/documents.interface";
 import { DocumentsService } from "./documents.service";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
+import { Observable, switchMap } from "rxjs";
 
 @Component({
   selector: 'app-documents',
@@ -12,11 +13,10 @@ import { Router } from "@angular/router";
 })
 export class DocumentsComponent implements OnInit {
   form!: FormGroup;
+  documents: Observable<Document[]> = this.documentsService.get();
 
   constructor(
     private documentsService: DocumentsService,
-    private http: HttpClient,
-    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -43,6 +43,8 @@ export class DocumentsComponent implements OnInit {
       file,
     }
     
-    this.documentsService.create(doc).subscribe();
+    this.documents = this.documentsService.create(doc).pipe(
+      switchMap(() => this.documentsService.get())
+    );
   }
 }

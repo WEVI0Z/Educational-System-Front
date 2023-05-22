@@ -1,9 +1,9 @@
 <div class="document">
-    <h4 class="document__title">Лабораторная работа №1123</h4>
-    <p class="document__category">Категория: практика</p>
-    <p class="document__date">Дата создания: 31.01.2005</p>
+    <h4 class="document__title">{{title}}</h4>
+    <p class="document__category">Категория: {{category}}</p>
+    <p class="document__date">Дата создания: {{createdAt}}</p>
     <div class="document__buttons">
         <button class="document__button button">Изменить</button>
-        <button class="document__button button">Открыть</button>
+        <a [href]="'http://localhost:3000/documents/' + file" class="document__button button">Открыть</a>
     </div>
 </div>

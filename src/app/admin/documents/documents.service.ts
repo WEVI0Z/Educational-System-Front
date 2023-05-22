@@ -33,8 +33,6 @@ export class DocumentsService {
     const minutes = this.dateZeroAdder(date.getMinutes());
     const seconds = this.dateZeroAdder(date.getSeconds());
 
-    console.log(`${year}-${month}-${day} ${hours}:${minutes}:${seconds}`);
-
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
   }
 
@@ -49,15 +47,27 @@ export class DocumentsService {
     return this.http.post<Document>(
       this.url + "/documents",
       formData
-      ).pipe(
-      catchError(e => {
-        console.log(e);
-        return EMPTY
-      }),
-      map(data => {
-        console.log(data);
-        return data;
-      })
+    ).pipe(
+      catchError(() => EMPTY)
     );
+  }
+
+  public get(category: string = "", take: number = 0, offset: number = 0): Observable<Document[]> {
+    const url = this.url +
+      "/documents?" +
+      (category ? `category=${category}&` : "") +
+      `take=${take}&` + 
+      `offset=${offset}`;
+
+    console.log(url);
+
+    return this.http.get<Document[]>(url, {
+      ...this.httpOptions,
+      responseType: "json",
+    }).pipe(
+      catchError(() => {
+        return EMPTY
+      })
+    )
   }
 }
