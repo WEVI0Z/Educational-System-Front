@@ -69,4 +69,15 @@
     &__submit {
         margin-top: 20px;
     }
+
+    &__select {
+        padding: 5px 10px;
+
+        font-size: 20px;
+        color: $active-text-color;
+
+        border-radius: 20px;
+        border: 2px solid $active-text-color;
+        background-color: #fff;
+    }
 }

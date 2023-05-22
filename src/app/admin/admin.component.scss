@@ -141,7 +141,7 @@ main {
     position: relative;
     margin-bottom: 20px;
     
-    border-bottom: 2px solid $active-text-color;
+    border-bottom: 1px solid $active-text-color;
 
     &::before {
         content: "";
