@@ -1,4 +1,6 @@
 export interface Document {
+    id?: number,
+
     title: string,
 
     file: File | string,

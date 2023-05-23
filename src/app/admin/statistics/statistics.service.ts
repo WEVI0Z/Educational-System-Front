@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
+import { Observable, switchMap, tap } from "rxjs";
+import { AuthorizationService } from "src/app/authorization/services/authorization.service";
 import { Statistic } from "src/app/shared/interfaces/statistic.interface";
 
 @Injectable({
@@ -11,6 +12,7 @@ export class StatisticsService {
 
   constructor(
     private http: HttpClient,
+    private authService: AuthorizationService,
   ) { }
 
   httpOptions = {
@@ -22,5 +24,11 @@ export class StatisticsService {
       `${this.url}/stats?take=${take}&offset=${offset}`,
       {responseType: "json"}
     );
+  }
+
+  public create(documentId: number) {
+    this.authService.checkToken().pipe(
+      switchMap(user => this.http.post(this.url + "/stats", {userId: user.id, documentId}))
+    ).subscribe();
   }
 }

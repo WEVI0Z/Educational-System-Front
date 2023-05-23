@@ -12,7 +12,7 @@ import { Statistic } from "../shared/interfaces/statistic.interface";
 })
 export class AdminComponent {
   protected documents: Observable<Document[]> = this.documentsService.get("", 6);
-  protected stats: Observable<Statistic[]> = this.statisticsService.get(6);
+  protected stats: Observable<Statistic[]> = this.statisticsService.get(9);
 
   constructor(
     private documentsService: DocumentsService,

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Router } from "@angular/router";
+import { StatisticsService } from "src/app/admin/statistics/statistics.service";
 
 @Component({
   selector: 'app-document',
@@ -17,4 +19,15 @@ export class DocumentComponent {
 
   @Input()
   category!: string;
+
+  @Input()
+  id!: number;
+
+  constructor(
+    private statisticsService: StatisticsService
+  ) {}
+
+  createStat(documentId: number) {
+    this.statisticsService.create(documentId);
+  }
 }
