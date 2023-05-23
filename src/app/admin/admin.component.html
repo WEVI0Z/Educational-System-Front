@@ -25,20 +25,17 @@
                 <div class="admin__statistics statistics">
                     <h3 class="statistics__title">Последняя статистика</h3>
                     <ul class="statistics__list">
-                        <li class="statistics__item">
-                            <app-stat></app-stat>
-                        </li>
-                        <li class="statistics__item">
-                            <app-stat></app-stat>
-                        </li>
-                        <li class="statistics__item">
-                            <app-stat></app-stat>
-                        </li>
-                        <li class="statistics__item">
-                            <app-stat></app-stat>
-                        </li>
-                        <li class="statistics__item">
-                            <app-stat></app-stat>
+                        <li
+                            class="statistics__item"
+                            *ngFor="let stat of stats | async"
+                        >
+                            <app-stat
+                                [date]="stat.createdAt"
+                                [documentName]="stat.document.title"
+                                [firstName]="stat.user.firstName"
+                                [middleName]="stat.user.middleName"
+                                [lastName]="stat.user.lastName"
+                            ></app-stat>
                         </li>
                     </ul>
                     <a class="statistics__button button" routerLink="./statistics">Открыть полностью</a>

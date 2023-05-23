@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { DocumentsService } from "./documents/documents.service";
 import { Observable } from "rxjs";
 import { Document } from "../shared/interfaces/documents.interface";
+import { StatisticsService } from "./statistics/statistics.service";
+import { Statistic } from "../shared/interfaces/statistic.interface";
 
 @Component({
   selector: 'app-admin',
@@ -9,9 +11,11 @@ import { Document } from "../shared/interfaces/documents.interface";
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
-  documents: Observable<Document[]> = this.documentsService.get("", 6);
+  protected documents: Observable<Document[]> = this.documentsService.get("", 6);
+  protected stats: Observable<Statistic[]> = this.statisticsService.get(6);
 
   constructor(
     private documentsService: DocumentsService,
+    private statisticsService: StatisticsService,
   ) {}
 }

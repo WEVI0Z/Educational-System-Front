@@ -8,7 +8,6 @@ import { Document } from "src/app/shared/interfaces/documents.interface";
   providedIn: 'root'
 })
 export class DocumentsService {
-  documents: Observable<Document[]> = new Observable().pipe(map(() => []));
   url: string = "http://localhost:3000";
 
   constructor(
@@ -58,8 +57,6 @@ export class DocumentsService {
       (category ? `category=${category}&` : "") +
       `take=${take}&` + 
       `offset=${offset}`;
-
-    console.log(url);
 
     return this.http.get<Document[]>(url, {
       ...this.httpOptions,
