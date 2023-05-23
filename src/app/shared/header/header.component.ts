@@ -18,5 +18,7 @@ export class HeaderComponent {
 
   protected admin: Observable<boolean> = this.authService.isAdmin();
 
-  protected logout = this.authService.logout;
+  protected logout() {
+    this.authService.logout();
+  };
 }

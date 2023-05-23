@@ -3,7 +3,11 @@
     <p class="document__category">Категория: {{category}}</p>
     <p class="document__date">Дата создания: {{createdAt}}</p>
     <div class="document__buttons">
-        <button class="document__button button">Изменить</button>
+        <a
+            [routerLink]=""
+            class="document__button button"
+            *ngIf="isAdmin"    
+        >Изменить</a>
         <a
             [href]="'http://localhost:3000/documents/' + file"
             class="document__button button"

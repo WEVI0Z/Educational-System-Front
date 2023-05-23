@@ -7,19 +7,23 @@ import { AuthorizationModule } from "./authorization/authorization.module";
 import { SharedModule } from "./shared/shared.module";
 import { HttpClientModule } from "@angular/common/http"
 import { AdminModule } from "./admin/admin.module";
+import { LibraryModule } from "./library/library.module";
+import { MainModule } from "./main/main.module";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    BrowserModule,
     AdminModule,
     SharedModule,
-    BrowserModule,
+    // MainModule,
+    // LibraryModule,
     AppRoutingModule,
     UserModule,
     AuthorizationModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

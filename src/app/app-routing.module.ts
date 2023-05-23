@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserComponent } from "./user/user.component";
 
 const routes: Routes = [
   {
@@ -12,10 +11,18 @@ const routes: Routes = [
     loadChildren: () =>  import("./admin/admin.module").then(m => m.AdminModule),
   },
   {
+    path: "library",
+    loadChildren: () =>  import("./library/library.module").then(m => m.LibraryModule),
+  },
+  {
     path: "main",
     pathMatch: "full",
     loadChildren: () =>  import("./main/main.module").then(m => m.MainModule),
   },
+  {
+    path: "**",
+    redirectTo: "/main"
+  }
 ];
 
 @NgModule({

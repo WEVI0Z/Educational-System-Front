@@ -1,19 +1,26 @@
 import { Injectable, inject } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
 import { AuthorizationService } from "../services/authorization.service";
-import { EMPTY, Observable, catchError, map } from "rxjs";
+import { EMPTY, Observable, catchError, map, tap } from "rxjs";
 
 @Injectable({
   providedIn: "root"
 })
 class PermissionsService {
   constructor(
-    private authService: AuthorizationService
+    private authService: AuthorizationService,
+    private router: Router,
   ) {}
 
   canActivate(): Observable<boolean> {
     return this.authService.checkToken().pipe(
-      catchError(() => EMPTY),
+      catchError(() => {
+        this.router.navigate(["/user/login"], {
+          queryParams: {error: "Авторизационный токен просрочен"}
+        });
+
+        return EMPTY;
+      }),
       map(() => true),
     )
   }

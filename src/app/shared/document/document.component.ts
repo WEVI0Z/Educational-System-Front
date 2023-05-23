@@ -23,6 +23,9 @@ export class DocumentComponent {
   @Input()
   id!: number;
 
+  @Input()
+  isAdmin: boolean = false
+
   constructor(
     private statisticsService: StatisticsService
   ) {}

@@ -1,0 +1,25 @@
+<div class="main-container">
+    <header-component></header-component>
+
+    <div class="module__documents documents">
+        <div class="documents__main">
+            <h3 class="documents__title">Документы</h3>
+            <label for="search" class="document__input form__label">
+                <input class="document__input form__input" type="search" name="search" id="search" placeholder="Поиск...">
+            </label>
+        </div>
+        <ul class="documents__list">
+            <li class="documents__item" *ngFor="let doc of documents | async">
+                <app-document
+                    [file]="'' + doc.file"
+                    [createdAt]="doc.createdAt"
+                    [category]="doc.category"
+                    [title]="doc.title"
+                    [id]="doc.id!"
+                ></app-document>
+            </li>
+        </ul>
+    </div>
+    
+    <footer-component></footer-component>
+</div>
