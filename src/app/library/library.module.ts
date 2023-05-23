@@ -4,6 +4,7 @@ import { LibraryComponent } from './library.component';
 import { RouterModule, Routes } from "@angular/router";
 import { authGuard } from "../authorization/guards/auth.guard";
 import { SharedModule } from "../shared/shared.module";
+import { FormsModule } from "@angular/forms";
 
 const routes: Routes = [
   {
@@ -12,7 +13,7 @@ const routes: Routes = [
     component: LibraryComponent,
   },
   {
-    path: ":id",
+    path: ":category",
     canActivate: [authGuard],
     component: LibraryComponent
   }

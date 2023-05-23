@@ -1,11 +1,19 @@
 <div class="main-container">
     <header-component></header-component>
 
-    <div class="module__documents documents">
+    <main class="module__documents documents">
         <div class="documents__main">
             <h3 class="documents__title">Документы</h3>
             <label for="search" class="document__input form__label">
-                <input class="document__input form__input" type="search" name="search" id="search" placeholder="Поиск...">
+                <input
+                    class="document__input form__input"
+                    type="search"
+                    name="search"
+                    id="search"
+                    #search
+                    placeholder="Поиск..."
+                    (input)="searchByValue(search.value)"
+                >
             </label>
         </div>
         <ul class="documents__list">
@@ -19,7 +27,7 @@
                 ></app-document>
             </li>
         </ul>
-    </div>
+    </main>
     
     <footer-component></footer-component>
 </div>
