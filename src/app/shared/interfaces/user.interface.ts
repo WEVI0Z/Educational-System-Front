@@ -8,3 +8,12 @@ export interface User {
     middleName: string,
     isTeacher?: boolean
 }
+
+export interface UpdateUser {
+    id: number,
+    login: string,
+    email: string,
+    firstName: string,
+    lastName: string,
+    middleName: string,
+}

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
 import { EMPTY, Observable, catchError, map, tap } from "rxjs";
 import { Token } from "src/app/shared/interfaces/token.intarface";
-import { User } from "src/app/shared/interfaces/user.interface";
+import { UpdateUser, User } from "src/app/shared/interfaces/user.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -71,7 +71,7 @@ export class AuthorizationService {
     );
   }
 
-  checkToken(): Observable<User | undefined> {
+  checkToken(): Observable<User> {
     if(this.token) {
       return this.http.get<User>(this.url + "/users/token", {
         headers: {"token": this.token},
@@ -95,9 +95,7 @@ export class AuthorizationService {
 
     localStorage.removeItem("token");
 
-    return new Observable().pipe(
-      map(() => undefined)
-    );
+    return new Observable();
   }
 
   public logout() {
@@ -130,5 +128,9 @@ export class AuthorizationService {
         return false
       })
     );
+  }
+
+  public update(updateUser: UpdateUser): Observable<User> {
+    return this.http.put<User>(this.url + "/users", updateUser, {responseType: "json", ...this.httpOptions});
   }
 }

@@ -23,7 +23,6 @@ export class LibraryComponent {
 
   protected searchByValue(value: string): void {
     this.documents = this.allDocuments.pipe(
-      debounce(() => interval(200)),
       map(documents => documents.filter(doc => doc.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())))
     )
   }
