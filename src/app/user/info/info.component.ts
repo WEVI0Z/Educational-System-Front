@@ -64,6 +64,8 @@ export class InfoComponent implements OnInit {
   }
 
   delete() {
-    
+    if(this.user) {
+      this.authService.delete(this.user.id!).subscribe();
+    }
   }
 }

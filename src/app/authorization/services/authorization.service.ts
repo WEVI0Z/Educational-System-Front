@@ -133,4 +133,11 @@ export class AuthorizationService {
   public update(updateUser: UpdateUser): Observable<User> {
     return this.http.put<User>(this.url + "/users", updateUser, {responseType: "json", ...this.httpOptions});
   }
+
+  public delete(id: number) {
+    this.logout();
+
+    this.router.navigate(["user/login"]);
+    return this.http.delete(this.url + "/users/" + id);
+  }
 }
