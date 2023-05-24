@@ -5,6 +5,8 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from "@angular/router";
 import { DocumentComponent } from './document/document.component';
 import { StatComponent } from './stat/stat.component';
+import { LoaderComponent } from './loader/loader.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -12,16 +14,20 @@ import { StatComponent } from './stat/stat.component';
     FooterComponent,
     DocumentComponent,
     StatComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     DocumentComponent,
-    StatComponent
+    StatComponent,
+    LoaderComponent,
   ]
 })
 export class SharedModule { }

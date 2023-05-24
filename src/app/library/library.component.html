@@ -16,8 +16,8 @@
                 >
             </label>
         </div>
-        <ul class="documents__list">
-            <li class="documents__item" *ngFor="let doc of documents | async">
+        <ul class="documents__list" *ngIf="documents | async">
+            <li class="documents__item" *ngFor="let doc of documents | async; let i = index">
                 <app-document
                     [file]="'' + doc.file"
                     [createdAt]="doc.createdAt"
@@ -27,6 +27,9 @@
                 ></app-document>
             </li>
         </ul>
+        <h2 *ngIf="!(documents | async)">
+            <app-loader></app-loader>
+        </h2>
     </main>
     
     <footer-component></footer-component>

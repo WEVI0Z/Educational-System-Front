@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
 import { EMPTY, Observable, catchError, map } from "rxjs";
-import { Document } from "src/app/shared/interfaces/documents.interface";
+import { Document, DocumentUpdate } from "src/app/shared/interfaces/documents.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -66,5 +66,9 @@ export class DocumentsService {
         return EMPTY
       })
     )
+  }
+
+  public update(documentUpdate: DocumentUpdate) {
+    return this.http.put(this.url + "/documents", documentUpdate);
   }
 }

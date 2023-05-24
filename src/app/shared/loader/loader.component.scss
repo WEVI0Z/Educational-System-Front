@@ -1,0 +1,99 @@
+.circle__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+
+    animation: spin 2s ease-in-out infinite;
+    transform: translate(-50%, -50%);
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+
+    border-radius: 50%;
+    background-color: #000;
+
+    &--first {
+        background-color: #19A68C;
+    }
+
+    &--second {
+        background-color: #F63D3A;
+        right: 0;
+    }
+
+    &--third {
+        background-color: #FDA543;
+        bottom: 0;
+    }
+
+    &--fourth {
+        background-color: #193B48;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+@keyframes scale {
+    
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+        width: 50px;
+        height: 50px;
+    }
+
+    12.5% {
+        transform: translate(-50%, -50%) rotate(90deg);
+        width: 43px;
+        height: 43px;
+    }
+
+    25% {
+        transform: translate(-50%, -50%) rotate(90deg);
+        width: 50px;
+        height: 50px;
+    }
+
+    37.5% {
+        transform: translate(-50%, -50%) rotate(180deg);
+        width: 43px;
+        height: 43px;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg);
+        width: 50px;
+        height: 50px;
+    }
+
+    62.5% {
+        transform: translate(-50%, -50%) rotate(270deg);
+        width: 43px;
+        height: 43px;
+    }
+
+    75% {
+        transform: translate(-50%, -50%) rotate(270deg);
+        width: 50px;
+        height: 50px;
+    }
+
+    87.5% {
+        transform: translate(-50%, -50%) rotate(360deg);
+        width: 43px;
+        height: 43px;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+        width: 50px;
+        height: 50px;
+    }
+}

@@ -9,3 +9,11 @@ export interface Document {
 
     createdAt: Date
 }
+
+export interface DocumentUpdate {
+  id: number,
+
+  title: string,
+  
+  category: string
+}

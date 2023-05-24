@@ -69,4 +69,18 @@
         justify-content: space-around;
         margin-bottom: 10px;
     }
+
+    &__form {
+        margin: 0 5px;
+        margin-bottom: 10px;
+        padding: 5px;
+        border: none;
+        max-width: 270px;
+        min-width: 270px;
+        width: 200px;
+
+        .form__input {
+            width: 250px;
+        }
+    }
 }

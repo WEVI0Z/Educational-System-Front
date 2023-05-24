@@ -28,7 +28,7 @@ export class StatisticsService {
 
   public create(documentId: number) {
     this.authService.checkToken().pipe(
-      switchMap(user => this.http.post(this.url + "/stats", {userId: user.id, documentId}))
+      switchMap(user => this.http.post(this.url + "/stats", {userId: user!.id, documentId}))
     ).subscribe();
   }
 }

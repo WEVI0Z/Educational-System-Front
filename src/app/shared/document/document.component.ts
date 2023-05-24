@@ -1,13 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Form, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { DocumentsService } from "src/app/admin/documents/documents.service";
 import { StatisticsService } from "src/app/admin/statistics/statistics.service";
+import { Document, DocumentUpdate } from "src/app/shared/interfaces/documents.interface";
 
 @Component({
   selector: 'app-document',
   templateUrl: './document.component.html',
   styleUrls: ['./document.component.scss']
 })
-export class DocumentComponent {
+export class DocumentComponent implements OnInit {
   @Input()
   title!: string;
 
@@ -24,13 +27,50 @@ export class DocumentComponent {
   id!: number;
 
   @Input()
-  isAdmin: boolean = false
+  isAdmin: boolean = false;
+
+  reduct: boolean = false;
+  form!: FormGroup;
 
   constructor(
-    private statisticsService: StatisticsService
+    private statisticsService: StatisticsService,
+    private documentsService: DocumentsService
   ) {}
 
   createStat(documentId: number) {
     this.statisticsService.create(documentId);
+  }
+
+  ngOnInit() {
+    this.form = new FormGroup({
+      title: new FormControl(null, [
+        Validators.required,
+      ]),
+      category: new FormControl(null, [
+        Validators.required,
+      ]),
+    })
+  }
+
+  change() {
+    this.reduct = !this.reduct;
+
+    this.form.get("title")?.setValue(this.title);
+    this.form.get("category")?.setValue(this.category);
+  }
+  
+  submit() {
+    this.reduct = false;
+
+    this.title = this.form.get("title")?.value;
+    this.category = this.form.get("category")?.value;
+
+    const doc: DocumentUpdate = {
+      id: this.id,
+      title: this.title,
+      category: this.category
+    }
+
+    this.documentsService.update(doc).subscribe();
   }
 }

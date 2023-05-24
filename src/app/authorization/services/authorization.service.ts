@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
-import { EMPTY, Observable, catchError, map } from "rxjs";
+import { EMPTY, Observable, catchError, map, tap } from "rxjs";
 import { Token } from "src/app/shared/interfaces/token.intarface";
 import { User } from "src/app/shared/interfaces/user.interface";
 
@@ -71,31 +71,33 @@ export class AuthorizationService {
     );
   }
 
-  checkToken(): Observable<User> {
+  checkToken(): Observable<User | undefined> {
     if(this.token) {
       return this.http.get<User>(this.url + "/users/token", {
         headers: {"token": this.token},
         responseType: "json",
       }).pipe(
-        catchError((err: HttpErrorResponse) => {
-          this.router.navigate(["/user/login"], {
-            queryParams: {error: "Авторизационный токен просрочен"}
-          });
-
-          throw err;
+        catchError(() => {
+          this.router.navigate(["/user/login"]);
+          console.log("s")
+          
+          return EMPTY
         })
       );
     }
-
     this.router.navigate(["/user/login"], {
-      queryParams: {error: "Необходима авторизация"}
+      queryParams: {
+        error: "Необходима авторизация"
+      }
     });
 
     this.token = null
 
     localStorage.removeItem("token");
 
-    return new Observable();
+    return new Observable().pipe(
+      map(() => undefined)
+    );
   }
 
   public logout() {
@@ -110,7 +112,9 @@ export class AuthorizationService {
 
   public isAuthorized(): Observable<boolean> {
     return this.checkToken().pipe(
-      catchError(() => EMPTY),
+      catchError(() => {
+        return EMPTY
+      }),
       map(() => true)
     );
   }
@@ -119,7 +123,11 @@ export class AuthorizationService {
     return this.checkToken().pipe(
       catchError(() => EMPTY),
       map((data) => {
-        return !!data.isTeacher;
+        if(data) {
+          return !!data.isTeacher;
+        }
+        
+        return false
       })
     );
   }

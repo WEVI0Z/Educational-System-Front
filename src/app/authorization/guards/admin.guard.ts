@@ -9,13 +9,24 @@ import { EMPTY, Observable, catchError, map, tap } from "rxjs";
 class PermissionsService {
   constructor(
     private authService: AuthorizationService,
+    private router: Router,
   ) {}
 
   canActivate(): Observable<boolean> {
-    return this.authService.isAuthorized();
+    return this.authService.isAdmin().pipe(
+      catchError(() => {
+        this.router.navigate(["/main"], {
+          queryParams: {error: "Недостаточно прав"}
+        });
+
+        console.log("gello");
+
+        return EMPTY;
+      })
+    )
   }
 }
 
-export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+export const adminGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
   return inject(PermissionsService).canActivate();
 };
