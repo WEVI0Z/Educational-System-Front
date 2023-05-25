@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from "@angular/router";
 import { Observable, catchError, EMPTY, map } from "rxjs";
 import { AuthorizationService } from "src/app/authorization/services/authorization.service";
@@ -10,16 +10,17 @@ import { User } from "../interfaces/user.interface";
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+  @Input()
+  authorized!: Observable<boolean>;
+
+  @Input()
+  admin!: Observable<boolean>;
+
+  @Input()
+  logout!: Function;
+  
   constructor(
     protected authService: AuthorizationService,
     protected router: Router,
   ) {}
-
-  protected authorized: Observable<boolean> = this.authService.isAuthorized();
-
-  protected admin: Observable<boolean> = this.authService.isAdmin();
-
-  protected logout() {
-    this.authService.logout();
-  };
 }

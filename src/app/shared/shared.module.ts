@@ -9,6 +9,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DocumentSmartComponent } from "./document/document-smart.component";
 import { HeaderSmartComponent } from "./header/header-smart.component";
+import { FooterSmartComponent } from "./footer/footer-smart.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HeaderSmartComponent } from "./header/header-smart.component";
     StatComponent,
     HeaderSmartComponent,
     LoaderComponent,
-    DocumentSmartComponent
+    DocumentSmartComponent,
+    FooterSmartComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,7 @@ import { HeaderSmartComponent } from "./header/header-smart.component";
     HeaderSmartComponent,
     FooterComponent,
     DocumentSmartComponent,
+    FooterSmartComponent,
     StatComponent,
     LoaderComponent,
   ]
