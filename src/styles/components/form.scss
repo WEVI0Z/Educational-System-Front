@@ -31,6 +31,7 @@
     }
 
     &__label {
+        position: relative;
         display: block;
         margin: 5px;
     }
@@ -79,5 +80,10 @@
         border-radius: 20px;
         border: 2px solid $active-text-color;
         background-color: #fff;
+    }
+    
+    &__error {
+        margin: 5px;
+        border-bottom: 2px solid black;
     }
 }

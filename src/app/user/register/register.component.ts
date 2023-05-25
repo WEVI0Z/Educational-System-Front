@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthorizationService } from "src/app/authorization/services/authorization.service";
+import { AdditionalValidators } from "src/app/shared/additional-validators";
 import { User } from "src/app/shared/interfaces/user.interface";
 
 @Component({
@@ -13,6 +14,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private authService: AuthorizationService,
+    private additionalValidators: AdditionalValidators,
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +41,8 @@ export class RegisterComponent implements OnInit {
       middleName: new FormControl(null, [
         Validators.required,
       ]),
+    }, {
+      validators: this.additionalValidators.passwordMatch(),
     })
   }
 
