@@ -91,7 +91,7 @@ export class AuthorizationService {
       }
     });
 
-    this.token = null
+    this.token = null;
 
     localStorage.removeItem("token");
 

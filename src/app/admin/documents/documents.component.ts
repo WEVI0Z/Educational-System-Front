@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Document } from "src/app/shared/interfaces/documents.interface";
 import { DocumentsService } from "./documents.service";
-import { HttpClient } from "@angular/common/http";
-import { Router } from "@angular/router";
 import { Observable, switchMap } from "rxjs";
 
 @Component({
@@ -44,7 +42,7 @@ export class DocumentsComponent implements OnInit {
     }
     
     this.documents = this.documentsService.create(doc).pipe(
-      switchMap(() => this.documentsService.get())
+      switchMap(() => this.documentsService.get()),
     );
   }
 }

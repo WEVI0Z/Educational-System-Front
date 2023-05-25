@@ -12,7 +12,7 @@ import { adminGuard } from "src/app/authorization/guards/admin.guard";
     DocumentsService,
   ],
   declarations: [
-    DocumentsComponent
+    DocumentsComponent,
   ],
   imports: [
     CommonModule,
@@ -26,7 +26,7 @@ import { adminGuard } from "src/app/authorization/guards/admin.guard";
     }]),
   ],
   exports: [
-    RouterModule
+    RouterModule,
   ]
 })
 export class DocumentsModule { }

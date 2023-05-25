@@ -12,7 +12,7 @@ import { ActivatedRoute, Route } from "@angular/router";
 export class LibraryComponent {
   param: string = "";
   documents: Observable<Document[]> = this.route.params.pipe(
-    switchMap(params => this.documentsService.get(params["category"]))
+    switchMap(params => this.documentsService.get(params["category"])),
   )
   allDocuments: Observable<Document[]> = this.documents;
 
@@ -24,6 +24,6 @@ export class LibraryComponent {
   protected searchByValue(value: string): void {
     this.documents = this.allDocuments.pipe(
       map(documents => documents.filter(doc => doc.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())))
-    )
+    );
   }
 }

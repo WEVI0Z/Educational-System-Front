@@ -12,7 +12,6 @@ export class DocumentsService {
 
   constructor(
     private http: HttpClient,
-    private router: Router,
   ) {}
 
   httpOptions = {
@@ -36,7 +35,7 @@ export class DocumentsService {
   }
 
   public create(body: Document): Observable<Document> {
-    const formData = new FormData()
+    const formData = new FormData();
 
     formData.append("file", body.file);
     formData.append("title", body.title);
@@ -47,7 +46,7 @@ export class DocumentsService {
       this.url + "/documents",
       formData
     ).pipe(
-      catchError(() => EMPTY)
+      catchError(() => EMPTY),
     );
   }
 
@@ -63,7 +62,7 @@ export class DocumentsService {
       responseType: "json",
     }).pipe(
       catchError(() => {
-        return EMPTY
+        return EMPTY;
       })
     )
   }

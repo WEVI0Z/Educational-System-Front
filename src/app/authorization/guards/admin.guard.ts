@@ -1,7 +1,7 @@
 import { Injectable, inject } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
 import { AuthorizationService } from "../services/authorization.service";
-import { EMPTY, Observable, catchError, map, tap } from "rxjs";
+import { EMPTY, Observable, catchError } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -18,8 +18,6 @@ class PermissionsService {
         this.router.navigate(["/main"], {
           queryParams: {error: "Недостаточно прав"}
         });
-
-        console.log("gello");
 
         return EMPTY;
       })

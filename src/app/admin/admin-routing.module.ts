@@ -18,7 +18,7 @@ const routes: Routes = [
                 path: "statistics",
                 loadChildren: () => import("./statistics/statistics.module").then(m => m.StatisticsModule),
             }
-        ]
+        ],
     }
 ]
 
@@ -27,10 +27,10 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
   ],
   exports: [
-    RouterModule
+    RouterModule,
   ]
 })
 export class AdminRoutingModule { }
