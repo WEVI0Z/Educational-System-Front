@@ -4,7 +4,6 @@
     <p class="document__date">Дата создания: {{createdAt | date: "YYYY.MM.dd"}}</p>
     <div class="document__buttons">
         <a
-            [routerLink]=""
             class="document__button button"
             *ngIf="isAdmin"
             (click)="change()"

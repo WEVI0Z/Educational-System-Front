@@ -2,14 +2,14 @@
     <h3 class="documents__title">Документы</h3>
     <ul class="documents__list">
         <li class="documents__item" *ngFor="let doc of documents | async">
-            <app-document
+            <app-document-smart
                 [file]="'' + doc.file"
                 [createdAt]="doc.createdAt"
                 [category]="doc.category"
                 [title]="doc.title"
                 [id]="doc.id!"
                 [isAdmin]="true"
-            ></app-document>
+            ></app-document-smart>
         </li>
     </ul>
     <form class="form" action="" method="post" enctype="multipart/form-data" [formGroup]="form" (ngSubmit)="submit()">

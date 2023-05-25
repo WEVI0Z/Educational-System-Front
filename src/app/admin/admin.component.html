@@ -12,14 +12,14 @@
                             class="documents__item document"
                             *ngFor="let doc of documents | async"
                         >
-                            <app-document
+                            <app-document-smart
                                 [category]="doc.category"
                                 [title]="doc.title"
                                 [file]="'' + doc.file"
                                 [createdAt]="doc.createdAt"
                                 [id]="doc.id!"
                                 [isAdmin]="true"
-                            ></app-document>
+                            ></app-document-smart>
                         </li>
                     </ul>
                     <a class="documents__button button" routerLink="./documents">Открыть полностью</a>

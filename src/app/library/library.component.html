@@ -18,13 +18,13 @@
         </div>
         <ul class="documents__list" *ngIf="documents | async">
             <li class="documents__item" *ngFor="let doc of documents | async; let i = index">
-                <app-document
+                <app-document-smart
                     [file]="'' + doc.file"
                     [createdAt]="doc.createdAt"
                     [category]="doc.category"
                     [title]="doc.title"
                     [id]="doc.id!"
-                ></app-document>
+                ></app-document-smart>
             </li>
         </ul>
         <h2 *ngIf="!(documents | async)">
