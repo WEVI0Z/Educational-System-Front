@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LibraryComponent } from './library.component';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { LibraryComponent } from "./library.component";
 import { RouterModule, Routes } from "@angular/router";
 import { authGuard } from "../authorization/guards/auth.guard";
 import { SharedModule } from "../shared/shared.module";

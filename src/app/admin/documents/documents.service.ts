@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { EMPTY, Observable, catchError, map } from "rxjs";
 import { Document, DocumentUpdate } from "src/app/shared/interfaces/documents.interface";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class DocumentsService {
   url: string = "http://localhost:3000";
@@ -15,11 +15,11 @@ export class DocumentsService {
   ) {}
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    headers: new HttpHeaders({ "Content-Type": "application/json" }),
   };
 
   private dateZeroAdder(number: number): string {
-    return number > 10 ? "" + number : "0" + number;
+    return number >= 10 ? "" + number : "0" + number;
   }
 
   private formDataDateParser(date: Date): string {

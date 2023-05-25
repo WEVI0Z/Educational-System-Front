@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { Observable, debounce, interval, map, switchMap } from "rxjs";
 import { DocumentsService } from "../admin/documents/documents.service";
 import { Document } from "../shared/interfaces/documents.interface";
 import { ActivatedRoute, Route } from "@angular/router";
 
 @Component({
-  selector: 'app-library',
-  templateUrl: './library.component.html',
-  styleUrls: ['./library.component.scss']
+  selector: "app-library",
+  templateUrl: "./library.component.html",
+  styleUrls: ["./library.component.scss"]
 })
 export class LibraryComponent {
   param: string = "";

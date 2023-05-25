@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Document } from "src/app/shared/interfaces/documents.interface";
 import { DocumentsService } from "./documents.service";
 import { Observable, switchMap } from "rxjs";
 
 @Component({
-  selector: 'app-documents',
-  templateUrl: './documents.component.html',
-  styleUrls: ['./documents.component.scss']
+  selector: "app-documents",
+  templateUrl: "./documents.component.html",
+  styleUrls: ["./documents.component.scss"]
 })
 export class DocumentsComponent implements OnInit {
   form!: FormGroup;

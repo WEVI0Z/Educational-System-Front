@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { DocumentsService } from "src/app/admin/documents/documents.service";
 import { StatisticsService } from "src/app/admin/statistics/statistics.service";
 import { DocumentUpdate } from "src/app/shared/interfaces/documents.interface";
 
 @Component({
-  selector: 'app-document-smart',
+  selector: "app-document-smart",
   template: `<app-document
                 [title]="title"
                 [file]="file"

@@ -1,13 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { DocumentsService } from "src/app/admin/documents/documents.service";
 import { StatisticsService } from "src/app/admin/statistics/statistics.service";
 import { DocumentUpdate } from "src/app/shared/interfaces/documents.interface";
 
 @Component({
-  selector: 'app-document',
-  templateUrl: './document.component.html',
-  styleUrls: ['./document.component.scss']
+  selector: "app-document",
+  templateUrl: "./document.component.html",
+  styleUrls: ["./document.component.scss"]
 })
 export class DocumentComponent {
   @Input()

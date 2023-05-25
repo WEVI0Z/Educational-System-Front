@@ -1,12 +1,12 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from "@angular/common/http";
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { EMPTY, Observable, catchError, map, tap } from "rxjs";
 import { Token } from "src/app/shared/interfaces/token.intarface";
 import { UpdateUser, User } from "src/app/shared/interfaces/user.interface";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AuthorizationService {
   url: string = "http://localhost:3000";
@@ -18,7 +18,7 @@ export class AuthorizationService {
   ) {}
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    headers: new HttpHeaders({ "Content-Type": "application/json" }),
   };
 
   private testConnection(): Observable<string> {

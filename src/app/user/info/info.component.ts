@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthorizationService } from "src/app/authorization/services/authorization.service";
 import { UpdateUser, User } from "src/app/shared/interfaces/user.interface";
 
 @Component({
-  selector: 'app-info',
-  templateUrl: './info.component.html',
-  styleUrls: ['./info.component.scss']
+  selector: "app-info",
+  templateUrl: "./info.component.html",
+  styleUrls: ["./info.component.scss"]
 })
 export class InfoComponent implements OnInit {
   user?: User;

@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { InfoComponent } from './info.component';
+import { InfoComponent } from "./info.component";
 
-describe('InfoComponent', () => {
+describe("InfoComponent", () => {
   let component: InfoComponent;
   let fixture: ComponentFixture<InfoComponent>;
 
@@ -15,7 +15,7 @@ describe('InfoComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

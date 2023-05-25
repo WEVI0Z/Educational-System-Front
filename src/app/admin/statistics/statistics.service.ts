@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { Observable, switchMap, tap } from "rxjs";
 import { AuthorizationService } from "src/app/authorization/services/authorization.service";
 import { Statistic } from "src/app/shared/interfaces/statistic.interface";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class StatisticsService {
   url: string = "http://localhost:3000";
@@ -16,7 +16,7 @@ export class StatisticsService {
   ) { }
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    headers: new HttpHeaders({ "Content-Type": "application/json" }),
   };
 
   public get(take: number = 0, offset: number = 0): Observable<Statistic[]> {
