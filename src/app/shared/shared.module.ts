@@ -8,6 +8,7 @@ import { StatComponent } from './stat/stat.component';
 import { LoaderComponent } from './loader/loader.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DocumentSmartComponent } from "./document/document-smart.component";
+import { HeaderSmartComponent } from "./header/header-smart.component";
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { DocumentSmartComponent } from "./document/document-smart.component";
     FooterComponent,
     DocumentComponent,
     StatComponent,
+    HeaderSmartComponent,
     LoaderComponent,
     DocumentSmartComponent
   ],
@@ -25,7 +27,7 @@ import { DocumentSmartComponent } from "./document/document-smart.component";
     ReactiveFormsModule
   ],
   exports: [
-    HeaderComponent,
+    HeaderSmartComponent,
     FooterComponent,
     DocumentSmartComponent,
     StatComponent,

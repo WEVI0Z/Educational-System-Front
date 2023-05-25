@@ -63,4 +63,8 @@ main {
         text-align: center;
         border-bottom: 1px solid $active-text-color;
     }
+
+    &__list {
+        flex-grow: 1;
+    }
 }
