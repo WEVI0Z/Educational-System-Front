@@ -1,0 +1,41 @@
+@import "../../../styles.scss";
+
+.header {
+    width: 100%;
+    background-color: #fff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    &__navigation {
+        max-width: $container-width;
+        padding: $container-padding;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+    }
+
+    &__title {
+        padding: 20px 10px;
+        margin: 0;
+    }
+
+    &__links {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__link {
+        padding: 10px;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__button {
+        padding: 5px 10px;
+    }
+}

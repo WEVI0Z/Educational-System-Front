@@ -1,0 +1,86 @@
+@import "../../../styles.scss";
+
+.document {
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 5px;
+    width: 270px;
+
+    border: 2px solid $active-text-color;
+    border-radius: 20px;
+
+    &__title {
+        margin: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        align-self: center;
+        font-size: 20px;
+        text-align: center;
+        border-bottom: 1px solid $active-text-color;
+    }
+
+    &__category {
+        margin: 0;
+        position: relative;
+        margin-left: 20px;
+        margin-bottom: 10px;
+
+        &::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            position: absolute;
+            top: 8px;
+            left: -15px;
+
+            background-color: $active-text-color;
+            border-radius: 50%;
+        }
+    }
+    
+    &__date {
+        margin: 0;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        position: relative;
+
+        &::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            position: absolute;
+            top: 8px;
+            left: -15px;
+
+            background-color: $active-text-color;
+            border-radius: 50%;
+        }
+    }
+
+    &__buttons {
+        align-self: stretch;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 10px;
+    }
+
+    &__form {
+        margin: 0 5px;
+        margin-bottom: 10px;
+        padding: 5px;
+        border: none;
+        max-width: 270px;
+        min-width: 270px;
+        width: 200px;
+
+        .form__input {
+            width: 250px;
+        }
+    }
+}

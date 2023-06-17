@@ -1,0 +1,16 @@
+@import "../../styles/global.scss";
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-main {
+    flex-grow: 1;
+    background-color: #fff;
+    max-width: $container-width;
+    border-radius: 20px;
+    padding: $container-padding;
+    margin: 40px auto;
+}

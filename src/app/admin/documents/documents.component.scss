@@ -1,0 +1,26 @@
+@import "../../../styles.scss";
+
+.documents {
+    max-width: $container-width;
+    padding: $container-padding;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: auto;
+    margin-bottom: 40px;
+
+    background-color: #fff;
+    border-radius: 20px;
+
+    &__title {
+        font-size: 24px;
+        text-align: center;
+        border-bottom: 1px solid $active-text-color;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

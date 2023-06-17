@@ -1,0 +1,36 @@
+<div class="main-container">
+    <header-smart-component></header-smart-component>
+
+    <main class="module__documents documents">
+        <div class="documents__main">
+            <h3 class="documents__title">Документы</h3>
+            <label for="search" class="document__input form__label">
+                <input
+                    class="document__input form__input"
+                    type="search"
+                    name="search"
+                    id="search"
+                    #search
+                    placeholder="Поиск..."
+                    (input)="searchByValue(search.value)"
+                >
+            </label>
+        </div>
+        <ul class="documents__list" *ngIf="documents | async">
+            <li class="documents__item" *ngFor="let doc of documents | async; let i = index">
+                <app-document-smart
+                    [file]="'' + doc.file"
+                    [createdAt]="doc.createdAt"
+                    [category]="doc.category"
+                    [title]="doc.title"
+                    [id]="doc.id!"
+                ></app-document-smart>
+            </li>
+        </ul>
+        <h2 *ngIf="!(documents | async)">
+            <app-loader></app-loader>
+        </h2>
+    </main>
+    
+    <footer-smart-component></footer-smart-component>
+</div>

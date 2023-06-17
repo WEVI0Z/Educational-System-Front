@@ -1,0 +1,34 @@
+<section *ngIf="!reduct" class="info">
+    <h2 class="info__title">Личный кабинет</h2>
+
+    <ul class="info__list" *ngIf="user">
+        <li class="info__item">Фамилия: {{user.lastName}}</li>
+        <li class="info__item">Имя: {{user.firstName}}</li>
+        <li class="info__item">Отчество: {{user.middleName}}</li>
+        <li class="info__item">Логин: {{user.login}}</li>
+        <li class="info__item">Почта: {{user.email}}</li>
+    </ul>
+
+    <button class="info__button button" (click)="change()">Изменить</button>
+</section>
+<form *ngIf="reduct" action="POST" method="post" class="form form--change" [formGroup]="form" (ngSubmit)="submit()">
+    <h2 class="form__title">Внесение изменений</h2>
+
+    <fieldset class="form__fieldset">
+        <label for="lastName" class="form__label">
+            <input formControlName="lastName" type="text" name="last_name" id="last_name" class="form__input" placeholder="Фамилия...">
+        </label>
+        <label for="firstName" class="form__label">
+            <input formControlName="firstName" type="text" name="first_name" id="first_name" class="form__input" placeholder="Имя...">
+        </label>
+        <label for="middleName" class="form__label">
+            <input formControlName="middleName" type="text" name="middle_name" id="middle_name" class="form__input" placeholder="Отчество...">
+        </label>
+    </fieldset>
+
+    <div class="form__buttons">
+        <button type="submit" class="form__submit button" [disabled]="form.invalid">Сохранить</button>
+        <button type="button" class="form__submit button" (click)="change()">Отменить</button>
+        <button type="button" class="form__submit button" (click)="delete()">Удалить аккаунт</button>
+    </div>
+</form>

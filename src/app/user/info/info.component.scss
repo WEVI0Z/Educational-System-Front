@@ -1,0 +1,49 @@
+@import "../../../styles.scss";
+
+.info {
+    max-width: $element-width;
+    padding: $container-padding;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: #fff;
+    border-radius: 20px;
+
+    &__title {
+        text-align: center;
+    }
+
+    &__list {
+        font-size: 20px;
+        padding-left: 30px;
+    }
+
+    &__item {
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 0;
+            top: 12px;
+            left: -24px;
+
+            border: 1px solid $active-text-color;
+        }
+    }
+
+    &__button {
+        align-self: flex-end;
+    }
+}
+
+.form {
+    &__buttons {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+}

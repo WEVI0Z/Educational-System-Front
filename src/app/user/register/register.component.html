@@ -1,0 +1,73 @@
+<form action="POST" method="post" class="form form--registration" [formGroup]="form" (ngSubmit)="submit()">
+    <h2 class="form__title">Регистрация</h2>
+
+    <fieldset class="form__fieldset">
+        <legend class="form__legend">Аутентификационные данные:</legend>
+        <label for="login" class="form__label">
+            <input formControlName="login" type="text" name="login" id="login" class="form__input" placeholder="Логин...">
+        </label>
+        <label for="email" class="form__label">
+            <input formControlName="email" type="email" name="email" id="email" class="form__input" placeholder="Почта...">
+        </label>
+        <label for="password" class="form__label">
+            <input formControlName="password" type="password" name="password" id="password" class="form__input" placeholder="Пароль...">
+        </label>
+    
+        <label for="passwordConfirmation" class="form__label">
+            <input formControlName="passwordConfirmation" type="password" name="password_confirmation" id="password_confirmation" class="form__input" placeholder="Повторите пароль...">
+        </label>
+
+        <p class="form__error" *ngIf="form.hasError('passwordMismatch')">
+            Пароли не совпадают
+        </p>
+    </fieldset>
+
+    <fieldset class="form__fieldset">
+        <legend class="form__legend">Персональные данные:</legend>
+        <label for="lastName" class="form__label">
+            <input formControlName="lastName" type="text" name="last_name" id="last_name" class="form__input" placeholder="Фамилия...">
+        </label>
+        <label for="firstName" class="form__label">
+            <input formControlName="firstName" type="text" name="first_name" id="first_name" class="form__input" placeholder="Имя...">
+        </label>
+        <label for="middleName" class="form__label">
+            <input formControlName="middleName" type="text" name="middle_name" id="middle_name" class="form__input" placeholder="Отчество...">
+        </label>
+    </fieldset>
+
+    <div class="form__validation" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+        <p class="form__error" *ngIf="form.get('email')?.errors!['required']">
+            Введите почту
+        </p>
+        <p class="form__error" *ngIf="form.get('email')?.errors!['email']">
+            Введите валидную почту
+        </p>
+    </div>
+    <div class="form__validation" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+        <p class="form__error" *ngIf="form.get('password')?.errors!['required']">
+            Введите пароль
+        </p>
+    </div>
+    <div class="form__validation" *ngIf="form.get('login')?.invalid && form.get('login')?.touched">
+        <p class="form__error" *ngIf="form.get('login')?.errors!['required']">
+            Придумайте Логин
+        </p>
+    </div>
+    <div class="form__validation" *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched">
+        <p class="form__error" *ngIf="form.get('firstName')?.errors!['required']">
+            Введите свое Имя
+        </p>
+    </div>
+    <div class="form__validation" *ngIf="form.get('middleName')?.invalid && form.get('middleName')?.touched">
+        <p class="form__error" *ngIf="form.get('middleName')?.errors!['required']">
+            Введите свое Отчество
+        </p>
+    </div>
+    <div class="form__validation" *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched">
+        <p class="form__error" *ngIf="form.get('lastName')?.errors!['required']">
+            Введите свою Фамилию
+        </p>
+    </div>
+
+    <button type="submit" class="form__submit button" [disabled]="form.invalid">Создать аккаунт</button>
+</form>

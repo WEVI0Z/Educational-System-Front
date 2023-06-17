@@ -1,0 +1,16 @@
+<form action="POST" method="post" class="form form--login" [formGroup]="form" (ngSubmit)="submit()">
+    <h2 class="form__title">Авторизация</h2>
+
+    <p *ngIf="this.error" class="form__error">
+        {{this.error}}
+    </p>
+
+    <label for="login" class="form__label">
+        <input formControlName="login" type="text" name="login" id="login" class="form__input" placeholder="Логин...">
+    </label>
+    <label for="password" class="form__label">
+        <input formControlName="password" type="password" name="password" id="password" class="form__input" placeholder="Пароль...">
+    </label>
+
+    <button type="submit" class="form__submit button" [disabled]="form.invalid">Войти</button>
+</form>

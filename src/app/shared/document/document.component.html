@@ -1,0 +1,32 @@
+<div *ngIf="!reduct" class="document">
+    <h4 class="document__title">{{title}}</h4>
+    <p class="document__category">Категория: {{category}}</p>
+    <p class="document__date">Дата создания: {{createdAt | date: "YYYY.MM.dd"}}</p>
+    <div class="document__buttons">
+        <a
+            class="document__button button"
+            *ngIf="isAdmin"
+            (click)="change()"
+        >Изменить</a>
+        <a
+            [href]="'http://localhost:3000/documents/' + file"
+            class="document__button button"
+            (click)="createStat(id)"
+        >Открыть</a>
+    </div>
+</div>
+<form *ngIf="reduct" class="form document__form" action="" method="post" enctype="multipart/form-data" [formGroup]="form" (ngSubmit)="submit()">
+    <h3 class="form__title">Изменить документ</h3>
+    <label for="title" class="form__label">
+        <input formControlName="title" type="text" name="title" id="title" class="form__input" placeholder="Название документа...">
+    </label>
+    <label for="category" class="form__label">
+        Категория:
+        <select formControlName="category" class="form__select" name="category" id="category">
+            <option value="practise">Практика</option>
+            <option value="theory">Теория</option>
+        </select>
+    </label>
+    <button type="submit" class="form__submit button" [disabled]="form.invalid">Сохранить</button>
+    <button class="form__submit button" (click)="change()">Отменить</button>
+</form>

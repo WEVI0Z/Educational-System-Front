@@ -1,0 +1,40 @@
+@import "../../../styles.scss";
+
+.footer {
+    width: 100%;
+    background-color: #fff;
+
+    &__navigation {
+        max-width: $container-width;
+        padding: $container-padding;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: auto;
+    }
+
+    &__title {
+        align-self: center;
+        padding: 20px 10px;
+        margin: 0;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__link {
+        padding: 10px;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__button {
+        padding: 5px 10px;
+    }
+}

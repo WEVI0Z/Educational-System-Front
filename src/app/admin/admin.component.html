@@ -1,0 +1,52 @@
+<div class="admin-container">
+    <header-smart-component></header-smart-component>
+
+    <main>
+        <section class="admin">
+            <h2 class="admin__title">Администрирование</h2>
+            <div class="admin__content">
+                <div class="admin__documents documents">
+                    <h3 class="documents__title">Последние документы</h3>
+                    <ul class="documents__list">
+                        <li
+                            class="documents__item document"
+                            *ngFor="let doc of documents | async"
+                        >
+                            <app-document-smart
+                                [category]="doc.category"
+                                [title]="doc.title"
+                                [file]="'' + doc.file"
+                                [createdAt]="doc.createdAt"
+                                [id]="doc.id!"
+                                [isAdmin]="true"
+                            ></app-document-smart>
+                        </li>
+                    </ul>
+                    <a class="documents__button button" routerLink="./documents">Открыть полностью</a>
+                </div>
+                <div class="admin__statistics statistics">
+                    <h3 class="statistics__title">Последняя статистика</h3>
+                    <ul class="statistics__list">
+                        <li
+                            class="statistics__item"
+                            *ngFor="let stat of stats | async"
+                        >
+                            <app-stat
+                                [date]="stat.createdAt"
+                                [documentName]="stat.document.title"
+                                [firstName]="stat.user.firstName"
+                                [middleName]="stat.user.middleName"
+                                [lastName]="stat.user.lastName"
+                            ></app-stat>
+                        </li>
+                    </ul>
+                    <a class="statistics__button button" routerLink="./statistics">Открыть полностью</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <router-outlet></router-outlet>
+
+    <footer-smart-component></footer-smart-component>
+</div>

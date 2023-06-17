@@ -1,0 +1,32 @@
+<div class="module__documents documents">
+    <h3 class="documents__title">Документы</h3>
+    <ul class="documents__list">
+        <li class="documents__item" *ngFor="let doc of documents | async">
+            <app-document-smart
+                [file]="'' + doc.file"
+                [createdAt]="doc.createdAt"
+                [category]="doc.category"
+                [title]="doc.title"
+                [id]="doc.id!"
+                [isAdmin]="true"
+            ></app-document-smart>
+        </li>
+    </ul>
+    <form class="form" action="" method="post" enctype="multipart/form-data" [formGroup]="form" (ngSubmit)="submit()">
+        <h3 class="form__title">Создать новый документ</h3>
+        <label for="title" class="form__label">
+            <input formControlName="title" type="text" name="title" id="title" class="form__input" placeholder="Название документа...">
+        </label>
+        <label for="category" class="form__label">
+            Категория:
+            <select formControlName="category" class="form__select" name="category" id="category">
+                <option value="practise">Практика</option>
+                <option value="theory">Теория</option>
+            </select>
+        </label>
+        <label for="file" class="form__label">
+            <input formControlName="file" type="file" name="file" id="file" class="form__input">
+        </label>
+        <button type="submit" class="form__submit button" [disabled]="form.invalid">Создать</button>
+    </form>
+</div>

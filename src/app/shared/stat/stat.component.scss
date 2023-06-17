@@ -1,0 +1,26 @@
+@import "../../../styles.scss";
+
+.stat {
+    margin: 0 5px;
+    margin-left: 20px;
+    position: relative;
+    margin-bottom: 21.5px;
+    
+    border-bottom: 1px solid $active-text-color;
+
+    &::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        position: absolute;
+        top: 8px;
+        left: -15px;
+
+        background-color: $active-text-color;
+        border-radius: 50%;
+    }
+    
+    &__info {
+        font-weight: 900;
+    }
+}

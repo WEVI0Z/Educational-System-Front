@@ -1,0 +1,91 @@
+@import "./variables.scss";
+@import "./typography.scss";
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.app-container {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    background-color: $background-color;
+    font-family: $font-family;
+}
+
+main {
+    flex-grow: 1;
+}
+
+a {
+    display: block;
+
+    text-decoration: none;
+    color: black;
+    
+    transition: transform 0.2s ease-out;
+
+    &:hover, &:focus {
+        color: $active-text-color;
+        text-decoration: underline;
+        cursor: pointer;
+
+        transform: translateY(-3px);
+    }
+
+    &:active {
+        color: $background-color;
+        transform: translateY(0px);
+    }
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.button {
+    padding: 10px 20px;
+
+    font-family: $font-family;
+    color: whitesmoke;
+    font-size: 16px;
+    font-weight: 700;
+
+    border-radius: 20px;
+    background-color: $active-text-color;
+    transition: all 0.2s ease-out;
+    box-shadow: 0 4px 0 0px lightgrey;
+    border: none;
+
+    &:hover, &:focus {
+        color: $active-text-color;
+        background-color: whitesmoke;
+        text-decoration: none;
+        cursor: pointer;
+        transform: translateY(0px);
+    }
+
+    &:active {
+        box-shadow: none;
+        transform: translateY(3px);
+    }
+
+    &:disabled {
+        background-color: gray;
+
+        &:hover, &:focus {
+            color: whitesmoke;
+            cursor: default;
+        }
+
+        &:active {
+            box-shadow: 0 4px 0 0px lightgrey;
+            transform: translateY(0px);
+        }
+    }
+}
